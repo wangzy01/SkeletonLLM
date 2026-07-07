@@ -1,0 +1,842 @@
+{
+  "drink water": [
+    "eat food",
+    "cheers and drink",
+    "open a bottle",
+    "wipe face",
+    "brush teeth"
+  ],
+  "eat food": [
+    "drink water",
+    "cheers and drink",
+    "brush teeth",
+    "wipe face",
+    "sniff/smell"
+  ],
+  "brush teeth": [
+    "wipe face",
+    "apply cream on face",
+    "blow nose",
+    "sneezing/cough",
+    "yawn"
+  ],
+  "brush hair": [
+    "touch hair",
+    "put on hat/cap",
+    "take off hat/cap",
+    "put on glasses",
+    "take off glasses"
+  ],
+  "drop something": [
+    "pick up",
+    "toss a coin",
+    "throw",
+    "throw ball (shoot a basket)",
+    "throw up hat/cap"
+  ],
+  "pick up": [
+    "drop something",
+    "squat down",
+    "put object into bag",
+    "take object out of bag",
+    "move heavy objects"
+  ],
+  "throw": [
+    "throw ball (shoot a basket)",
+    "toss a coin",
+    "throw up hat/cap",
+    "bounce ball",
+    "swing paddle"
+  ],
+  "sit down": [
+    "stand up",
+    "squat down",
+    "bow (bend forward)",
+    "jump up",
+    "hopping"
+  ],
+  "stand up": [
+    "sit down",
+    "squat down",
+    "jump up",
+    "hopping",
+    "run on the spot"
+  ],
+  "clapping": [
+    "rub two hands",
+    "pray with hands together",
+    "high-five",
+    "hand waving",
+    "cheer (raise arms)"
+  ],
+  "reading": [
+    "writing",
+    "play with phone/tablet",
+    "take a photo",
+    "take a selfie",
+    "check time (from watch)"
+  ],
+  "writing": [
+    "reading",
+    "type on keyboard",
+    "play with phone/tablet",
+    "tear up paper",
+    "fold paper"
+  ],
+  "tear up paper": [
+    "cutting paper",
+    "ball up paper",
+    "fold paper",
+    "staple papers with a small stapler",
+    "writing"
+  ],
+  "put on jacket": [
+    "take off jacket",
+    "put on bag",
+    "take off bag",
+    "put on hat/cap",
+    "take off hat/cap"
+  ],
+  "take off jacket": [
+    "put on jacket",
+    "take off bag",
+    "put on bag",
+    "take off hat/cap",
+    "put on hat/cap"
+  ],
+  "put on shoe": [
+    "take off shoe",
+    "squat down",
+    "sit down",
+    "stand up",
+    "touch toes repeatedly"
+  ],
+  "take off shoe": [
+    "put on shoe",
+    "squat down",
+    "sit down",
+    "stand up",
+    "touch toes repeatedly"
+  ],
+  "put on glasses": [
+    "take off glasses",
+    "put on hat/cap",
+    "take off hat/cap",
+    "put on headphones",
+    "take off headphone"
+  ],
+  "take off glasses": [
+    "put on glasses",
+    "take off hat/cap",
+    "put on hat/cap",
+    "take off headphone",
+    "put on headphones"
+  ],
+  "put on hat/cap": [
+    "take off hat/cap",
+    "brush hair",
+    "put on glasses",
+    "take off glasses",
+    "put on headphones"
+  ],
+  "take off hat/cap": [
+    "put on hat/cap",
+    "brush hair",
+    "take off glasses",
+    "put on glasses",
+    "take off headphone"
+  ],
+  "cheer (raise arms)": [
+    "hand waving",
+    "clapping",
+    "high-five",
+    "give thumbs up",
+    "make victory sign"
+  ],
+  "hand waving": [
+    "cheer (raise arms)",
+    "clapping",
+    "high-five",
+    "point at something/directions",
+    "give thumbs up"
+  ],
+  "kicking the air/something": [
+    "kicking someone",
+    "side kick",
+    "butt kicks",
+    "run on the spot",
+    "jump up"
+  ],
+  "reach into pocket": [
+    "touch someone's pocket",
+    "put object into bag",
+    "take object out of bag",
+    "open a box",
+    "grab something from someone"
+  ],
+  "hopping": [
+    "jump up",
+    "run on the spot",
+    "butt kicks",
+    "side kick",
+    "kicking the air/something"
+  ],
+  "jump up": [
+    "hopping",
+    "run on the spot",
+    "side kick",
+    "kicking the air/something",
+    "butt kicks"
+  ],
+  "phone call": [
+    "play with phone/tablet",
+    "take a selfie",
+    "check time (from watch)",
+    "reading",
+    "writing"
+  ],
+  "play with phone/tablet": [
+    "phone call",
+    "take a selfie",
+    "take a photo",
+    "check time (from watch)",
+    "type on keyboard"
+  ],
+  "type on keyboard": [
+    "writing",
+    "reading",
+    "play with phone/tablet",
+    "counting money",
+    "play with a rubik's cube"
+  ],
+  "point at something/directions": [
+    "hand waving",
+    "point at someone",
+    "give thumbs up",
+    "give thumbs down",
+    "make victory sign"
+  ],
+  "take a selfie": [
+    "take a photo",
+    "phone call",
+    "play with phone/tablet",
+    "check time (from watch)",
+    "make victory sign"
+  ],
+  "check time (from watch)": [
+    "phone call",
+    "play with phone/tablet",
+    "take a selfie",
+    "take a photo",
+    "reading"
+  ],
+  "rub two hands": [
+    "clapping",
+    "pray with hands together",
+    "cross hands in front",
+    "shaking hands",
+    "high-five"
+  ],
+  "bow (bend forward)": [
+    "squat down",
+    "sit down",
+    "stand up",
+    "pray with hands together",
+    "salute"
+  ],
+  "shake head": [
+    "brush hair",
+    "touch hair",
+    "wipe face",
+    "yawn",
+    "sneezing/cough"
+  ],
+  "wipe face": [
+    "brush teeth",
+    "apply cream on face",
+    "brush hair",
+    "touch hair",
+    "blow nose"
+  ],
+  "salute": [
+    "hand waving",
+    "cheer (raise arms)",
+    "point at something/directions",
+    "point at someone",
+    "give thumbs up"
+  ],
+  "pray with hands together": [
+    "clapping",
+    "rub two hands",
+    "cross hands in front",
+    "bow (bend forward)",
+    "high-five"
+  ],
+  "cross hands in front": [
+    "pray with hands together",
+    "rub two hands",
+    "clapping",
+    "cross arms",
+    "capitulate"
+  ],
+  "sneezing/cough": [
+    "blow nose",
+    "yawn",
+    "nausea/vomiting",
+    "wipe face",
+    "drink water"
+  ],
+  "staggering": [
+    "falling down",
+    "run on the spot",
+    "walking towards each other",
+    "walking apart from each other",
+    "nausea/vomiting"
+  ],
+  "falling down": [
+    "staggering",
+    "squat down",
+    "sit down",
+    "stand up",
+    "drop something"
+  ],
+  "headache": [
+    "neck pain",
+    "back pain",
+    "chest pain",
+    "nausea/vomiting",
+    "wipe face"
+  ],
+  "chest pain": [
+    "back pain",
+    "neck pain",
+    "headache",
+    "nausea/vomiting",
+    "staggering"
+  ],
+  "back pain": [
+    "neck pain",
+    "chest pain",
+    "headache",
+    "nausea/vomiting",
+    "stretch oneself"
+  ],
+  "neck pain": [
+    "headache",
+    "back pain",
+    "chest pain",
+    "nausea/vomiting",
+    "shake head"
+  ],
+  "nausea/vomiting": [
+    "sneezing/cough",
+    "blow nose",
+    "headache",
+    "chest pain",
+    "back pain"
+  ],
+  "fan self": [
+    "wipe face",
+    "yawn",
+    "sniff/smell",
+    "shake head",
+    "hand waving"
+  ],
+  "punch/slap someone": [
+    "kicking someone",
+    "pushing someone",
+    "hit someone with an object",
+    "swing a knife at someone",
+    "throw"
+  ],
+  "kicking someone": [
+    "punch/slap someone",
+    "pushing someone",
+    "step on someone's foot",
+    "kicking the air/something",
+    "side kick"
+  ],
+  "pushing someone": [
+    "punch/slap someone",
+    "kicking someone",
+    "knock into someone",
+    "pat someone on the back",
+    "grab something from someone"
+  ],
+  "pat someone on the back": [
+    "hug each other",
+    "shaking hands",
+    "support someone",
+    "pushing someone",
+    "high-five"
+  ],
+  "point at someone": [
+    "point at something/directions",
+    "hand waving",
+    "salute",
+    "give thumbs up",
+    "give thumbs down"
+  ],
+  "hug each other": [
+    "shaking hands",
+    "high-five",
+    "pat someone on the back",
+    "support someone",
+    "giving object"
+  ],
+  "giving object": [
+    "exchange objects",
+    "take object out of bag",
+    "put object into bag",
+    "grab something from someone",
+    "shaking hands"
+  ],
+  "touch someone's pocket": [
+    "reach into pocket",
+    "grab something from someone",
+    "giving object",
+    "take object out of bag",
+    "put object into bag"
+  ],
+  "shaking hands": [
+    "high-five",
+    "hug each other",
+    "pat someone on the back",
+    "rub two hands",
+    "pray with hands together"
+  ],
+  "walking towards each other": [
+    "walking apart from each other",
+    "hug each other",
+    "shaking hands",
+    "high-five",
+    "run on the spot"
+  ],
+  "walking apart from each other": [
+    "walking towards each other",
+    "run on the spot",
+    "stand up",
+    "sit down",
+    "follow someone"
+  ],
+  "put on headphones": [
+    "take off headphone",
+    "phone call",
+    "play with phone/tablet",
+    "check time (from watch)",
+    "put on hat/cap"
+  ],
+  "take off headphone": [
+    "put on headphones",
+    "phone call",
+    "play with phone/tablet",
+    "check time (from watch)",
+    "take off hat/cap"
+  ],
+  "throw ball (shoot a basket)": [
+    "throw",
+    "toss a coin",
+    "bounce ball",
+    "swing paddle",
+    "juggle table tennis ball"
+  ],
+  "bounce ball": [
+    "throw ball (shoot a basket)",
+    "throw",
+    "juggle table tennis ball",
+    "swing paddle",
+    "arm swings"
+  ],
+  "swing paddle": [
+    "throw ball (shoot a basket)",
+    "bounce ball",
+    "throw",
+    "juggle table tennis ball",
+    "arm swings"
+  ],
+  "juggle table tennis ball": [
+    "bounce ball",
+    "swing paddle",
+    "throw ball (shoot a basket)",
+    "throw",
+    "toss a coin"
+  ],
+  "hush": [
+    "whisper to someone",
+    "phone call",
+    "play with phone/tablet",
+    "reading",
+    "writing"
+  ],
+  "touch hair": [
+    "brush hair",
+    "shake head",
+    "wipe face",
+    "apply cream on face",
+    "put on hat/cap"
+  ],
+  "give thumbs up": [
+    "give thumbs down",
+    "make ok sign",
+    "make victory sign",
+    "point at something/directions",
+    "point at someone"
+  ],
+  "give thumbs down": [
+    "give thumbs up",
+    "make ok sign",
+    "make victory sign",
+    "point at something/directions",
+    "point at someone"
+  ],
+  "make ok sign": [
+    "make victory sign",
+    "give thumbs up",
+    "give thumbs down",
+    "point at something/directions",
+    "hand waving"
+  ],
+  "make victory sign": [
+    "make ok sign",
+    "give thumbs up",
+    "give thumbs down",
+    "point at something/directions",
+    "point at someone"
+  ],
+  "staple papers with a small stapler": [
+    "cutting paper",
+    "tear up paper",
+    "fold paper",
+    "ball up paper",
+    "writing"
+  ],
+  "counting money": [
+    "tear up paper",
+    "fold paper",
+    "ball up paper",
+    "staple papers with a small stapler",
+    "type on keyboard"
+  ],
+  "cutting nails": [
+    "cutting paper",
+    "tear up paper",
+    "apply cream on hand",
+    "apply cream on face",
+    "fold paper"
+  ],
+  "cutting paper": [
+    "tear up paper",
+    "fold paper",
+    "ball up paper",
+    "staple papers with a small stapler",
+    "writing"
+  ],
+  "snap fingers": [
+    "rub two hands",
+    "clapping",
+    "give thumbs up",
+    "give thumbs down",
+    "make ok sign"
+  ],
+  "open a bottle": [
+    "drink water",
+    "eat food",
+    "cheers and drink",
+    "open a box",
+    "reach into pocket"
+  ],
+  "sniff/smell": [
+    "sneezing/cough",
+    "blow nose",
+    "yawn",
+    "fan self",
+    "drink water"
+  ],
+  "squat down": [
+    "sit down",
+    "stand up",
+    "bow (bend forward)",
+    "put on shoe",
+    "take off shoe"
+  ],
+  "toss a coin": [
+    "throw",
+    "throw ball (shoot a basket)",
+    "juggle table tennis ball",
+    "bounce ball",
+    "swing paddle"
+  ],
+  "fold paper": [
+    "tear up paper",
+    "ball up paper",
+    "cutting paper",
+    "staple papers with a small stapler",
+    "writing"
+  ],
+  "ball up paper": [
+    "tear up paper",
+    "fold paper",
+    "cutting paper",
+    "staple papers with a small stapler",
+    "writing"
+  ],
+  "play with a rubik's cube": [
+    "counting money",
+    "cutting nails",
+    "fold paper",
+    "ball up paper",
+    "tear up paper"
+  ],
+  "apply cream on face": [
+    "wipe face",
+    "brush teeth",
+    "brush hair",
+    "touch hair",
+    "apply cream on hand"
+  ],
+  "apply cream on hand": [
+    "apply cream on face",
+    "cutting nails",
+    "rub two hands",
+    "wipe face",
+    "touch hair"
+  ],
+  "put on bag": [
+    "take off bag",
+    "put on jacket",
+    "take off jacket",
+    "put object into bag",
+    "take object out of bag"
+  ],
+  "take off bag": [
+    "put on bag",
+    "take off jacket",
+    "put on jacket",
+    "put object into bag",
+    "take object out of bag"
+  ],
+  "put object into bag": [
+    "take object out of bag",
+    "put on bag",
+    "take off bag",
+    "reach into pocket",
+    "open a box"
+  ],
+  "take object out of bag": [
+    "put object into bag",
+    "put on bag",
+    "take off bag",
+    "reach into pocket",
+    "open a box"
+  ],
+  "open a box": [
+    "reach into pocket",
+    "put object into bag",
+    "take object out of bag",
+    "drop something",
+    "pick up"
+  ],
+  "move heavy objects": [
+    "carry objects together",
+    "drop something",
+    "pick up",
+    "put on bag",
+    "take off bag"
+  ],
+  "shake fist": [
+    "cheer (raise arms)",
+    "hand waving",
+    "give thumbs up",
+    "give thumbs down",
+    "make ok sign"
+  ],
+  "throw up hat/cap": [
+    "throw",
+    "toss a coin",
+    "throw ball (shoot a basket)",
+    "bounce ball",
+    "swing paddle"
+  ],
+  "capitulate": [
+    "bow (bend forward)",
+    "cross hands in front",
+    "cross arms",
+    "pray with hands together",
+    "hug each other"
+  ],
+  "cross arms": [
+    "cross hands in front",
+    "pray with hands together",
+    "bow (bend forward)",
+    "capitulate",
+    "hug each other"
+  ],
+  "spin arms in circles": [
+    "arm swings",
+    "throw",
+    "throw ball (shoot a basket)",
+    "bounce ball",
+    "swing paddle"
+  ],
+  "arm swings": [
+    "spin arms in circles",
+    "throw",
+    "throw ball (shoot a basket)",
+    "bounce ball",
+    "swing paddle"
+  ],
+  "run on the spot": [
+    "hopping",
+    "jump up",
+    "kicking the air/something",
+    "butt kicks",
+    "side kick"
+  ],
+  "butt kicks": [
+    "kicking the air/something",
+    "side kick",
+    "run on the spot",
+    "hopping",
+    "jump up"
+  ],
+  "touch toes repeatedly": [
+    "squat down",
+    "sit down",
+    "stand up",
+    "bow (bend forward)",
+    "stretch oneself"
+  ],
+  "side kick": [
+    "kicking someone",
+    "kicking the air/something",
+    "butt kicks",
+    "run on the spot",
+    "hopping"
+  ],
+  "yawn": [
+    "sneezing/cough",
+    "blow nose",
+    "sniff/smell",
+    "fan self",
+    "wipe face"
+  ],
+  "stretch oneself": [
+    "touch toes repeatedly",
+    "squat down",
+    "sit down",
+    "stand up",
+    "bow (bend forward)"
+  ],
+  "blow nose": [
+    "sneezing/cough",
+    "yawn",
+    "sniff/smell",
+    "wipe face",
+    "fan self"
+  ],
+  "hit someone with an object": [
+    "punch/slap someone",
+    "kicking someone",
+    "pushing someone",
+    "swing a knife at someone",
+    "throw"
+  ],
+  "swing a knife at someone": [
+    "hit someone with an object",
+    "punch/slap someone",
+    "kicking someone",
+    "pushing someone",
+    "throw"
+  ],
+  "knock into someone": [
+    "pushing someone",
+    "punch/slap someone",
+    "kicking someone",
+    "hit someone with an object",
+    "swing a knife at someone"
+  ],
+  "grab something from someone": [
+    "giving object",
+    "touch someone's pocket",
+    "reach into pocket",
+    "take object out of bag",
+    "put object into bag"
+  ],
+  "point a gun at someone": [
+    "punch/slap someone",
+    "kicking someone",
+    "pushing someone",
+    "hit someone with an object",
+    "swing a knife at someone"
+  ],
+  "step on someone's foot": [
+    "kicking someone",
+    "kicking the air/something",
+    "side kick",
+    "butt kicks",
+    "run on the spot"
+  ],
+  "high-five": [
+    "shaking hands",
+    "hug each other",
+    "pat someone on the back",
+    "clapping",
+    "rub two hands"
+  ],
+  "cheers and drink": [
+    "drink water",
+    "eat food",
+    "open a bottle",
+    "clapping",
+    "hug each other"
+  ],
+  "carry objects together": [
+    "move heavy objects",
+    "drop something",
+    "pick up",
+    "put object into bag",
+    "take object out of bag"
+  ],
+  "take a photo": [
+    "take a selfie",
+    "play with phone/tablet",
+    "phone call",
+    "check time (from watch)",
+    "reading"
+  ],
+  "follow someone": [
+    "walking towards each other",
+    "walking apart from each other",
+    "run on the spot",
+    "support someone",
+    "giving object"
+  ],
+  "whisper to someone": [
+    "hush",
+    "phone call",
+    "play with phone/tablet",
+    "pat someone on the back",
+    "hug each other"
+  ],
+  "exchange objects": [
+    "giving object",
+    "touch someone's pocket",
+    "take object out of bag",
+    "put object into bag",
+    "pat someone on the back"
+  ],
+  "support someone": [
+    "hug each other",
+    "shaking hands",
+    "pat someone on the back",
+    "giving object",
+    "exchange objects"
+  ],
+  "rock-paper-scissors": [
+    "make ok sign",
+    "make victory sign",
+    "give thumbs up",
+    "give thumbs down",
+    "snap fingers"
+  ]
+}

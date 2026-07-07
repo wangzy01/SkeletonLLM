@@ -1,0 +1,28 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environment and local configuration
+.env
+.venv/
+venv/
+env/
+
+# Build and generated artifacts
+build/
+dist/
+*.egg-info/
+logs/
+outputs/
+checkpoints/
+runs/
+work_dirs/
+rendered_frames/
+
+# Generated annotations / rationales (regenerate with tools/); keep data/*.json
+*.jsonl
+meta_config.json

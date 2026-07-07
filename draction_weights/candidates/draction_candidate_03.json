@@ -1,0 +1,60 @@
+{
+  "format": "skeletonllm-draction-v1",
+  "name": "draction_candidate_03",
+  "description": "Released DrAction renderer candidate 3.",
+  "source_checkpoint": "output-30462",
+  "num_line_samples": 10,
+  "render_frames": 12,
+  "render_size": 448,
+  "num_joints": 25,
+  "num_gaussians": 265,
+  "feature_dim": 3,
+  "enable_nfm": false,
+  "tensor_count": 12,
+  "tensors": {
+    "appearance_head.0.bias": [
+      64
+    ],
+    "appearance_head.0.weight": [
+      64,
+      3
+    ],
+    "appearance_head.2.bias": [
+      4
+    ],
+    "appearance_head.2.weight": [
+      4,
+      64
+    ],
+    "canonical_features": [
+      265,
+      3
+    ],
+    "canonical_joints": [
+      25,
+      3
+    ],
+    "canonical_means": [
+      265,
+      3
+    ],
+    "canonical_opacities": [
+      265,
+      1
+    ],
+    "canonical_quats": [
+      265,
+      4
+    ],
+    "canonical_scales": [
+      265,
+      3
+    ],
+    "depth_mix_logit": [],
+    "lbs_weights_logits": [
+      265,
+      25
+    ]
+  },
+  "sha256": "44540f1bdfc696598d7ab2015996399622d18c1efcc5a922f8094d72591f7bac"
+}

@@ -1,0 +1,25 @@
+# Core training / inference dependencies for SkeletonLLM.
+# Reference environment: Python 3.9, CUDA 12.1. Install a CUDA-matched PyTorch
+# build first (see README), then `pip install -r requirements.txt`.
+torch
+torchvision
+transformers==4.42.0
+accelerate
+deepspeed==0.17.2
+peft
+timm
+einops
+sentencepiece
+safetensors
+Pillow
+tqdm
+numpy
+packaging
+imageio
+decord
+opencv-python-headless
+orjson
+datasets
+# Optional extras (not required for the default pipeline):
+#   openai        -- only for tools/generate_teacher_rationales.py (CR-Distill teacher)
+#   liger-kernel  -- optional attention/RMSNorm kernels (auto-detected if installed)

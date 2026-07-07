@@ -1,0 +1,422 @@
+{
+  "drink water": [
+    "eat food",
+    "brush teeth",
+    "sneezing/cough",
+    "wipe face",
+    "phone call"
+  ],
+  "eat food": [
+    "drink water",
+    "brush teeth",
+    "sneezing/cough",
+    "wipe face",
+    "nausea/vomiting"
+  ],
+  "brush teeth": [
+    "drink water",
+    "eat food",
+    "wipe face",
+    "sneezing/cough",
+    "nausea/vomiting"
+  ],
+  "brush hair": [
+    "put on hat/cap",
+    "take off hat/cap",
+    "put on glasses",
+    "take off glasses",
+    "brush teeth"
+  ],
+  "drop something": [
+    "pick up",
+    "throw",
+    "tear up paper",
+    "reach into pocket",
+    "giving object"
+  ],
+  "pick up": [
+    "drop something",
+    "throw",
+    "reach into pocket",
+    "giving object",
+    "touch someone's pocket"
+  ],
+  "throw": [
+    "pick up",
+    "drop something",
+    "giving object",
+    "point at something/directions",
+    "hand waving"
+  ],
+  "sit down": [
+    "stand up",
+    "falling down",
+    "staggering",
+    "jump up",
+    "hopping"
+  ],
+  "stand up": [
+    "sit down",
+    "falling down",
+    "staggering",
+    "jump up",
+    "hopping"
+  ],
+  "clapping": [
+    "rub two hands",
+    "pray with hands together",
+    "hand waving",
+    "cheer (raise arms)",
+    "cross hands in front"
+  ],
+  "reading": [
+    "writing",
+    "type on keyboard",
+    "play with phone/tablet",
+    "tear up paper",
+    "put on glasses"
+  ],
+  "writing": [
+    "type on keyboard",
+    "reading",
+    "play with phone/tablet",
+    "tear up paper",
+    "put on glasses"
+  ],
+  "tear up paper": [
+    "reading",
+    "writing",
+    "drop something",
+    "throw",
+    "pick up"
+  ],
+  "put on jacket": [
+    "take off jacket",
+    "put on hat/cap",
+    "take off hat/cap",
+    "put on shoe",
+    "take off shoe"
+  ],
+  "take off jacket": [
+    "put on jacket",
+    "put on hat/cap",
+    "take off hat/cap",
+    "put on shoe",
+    "take off shoe"
+  ],
+  "put on shoe": [
+    "take off shoe",
+    "sit down",
+    "stand up",
+    "bow (bend forward)",
+    "hopping"
+  ],
+  "take off shoe": [
+    "put on shoe",
+    "sit down",
+    "stand up",
+    "bow (bend forward)",
+    "hopping"
+  ],
+  "put on glasses": [
+    "take off glasses",
+    "put on hat/cap",
+    "take off hat/cap",
+    "brush hair",
+    "wipe face"
+  ],
+  "take off glasses": [
+    "put on glasses",
+    "put on hat/cap",
+    "take off hat/cap",
+    "brush hair",
+    "wipe face"
+  ],
+  "put on hat/cap": [
+    "take off hat/cap",
+    "brush hair",
+    "put on glasses",
+    "take off glasses",
+    "salute"
+  ],
+  "take off hat/cap": [
+    "put on hat/cap",
+    "brush hair",
+    "put on glasses",
+    "take off glasses",
+    "salute"
+  ],
+  "cheer (raise arms)": [
+    "hand waving",
+    "clapping",
+    "jump up",
+    "salute",
+    "point at something/directions"
+  ],
+  "hand waving": [
+    "cheer (raise arms)",
+    "clapping",
+    "salute",
+    "point at something/directions",
+    "point at someone"
+  ],
+  "kicking the air/something": [
+    "kicking someone",
+    "jump up",
+    "hopping",
+    "falling down",
+    "staggering"
+  ],
+  "reach into pocket": [
+    "touch someone's pocket",
+    "giving object",
+    "take a selfie",
+    "play with phone/tablet",
+    "check time (from watch)"
+  ],
+  "hopping": [
+    "jump up",
+    "kicking the air/something",
+    "falling down",
+    "staggering",
+    "stand up"
+  ],
+  "jump up": [
+    "hopping",
+    "kicking the air/something",
+    "falling down",
+    "staggering",
+    "stand up"
+  ],
+  "phone call": [
+    "play with phone/tablet",
+    "take a selfie",
+    "check time (from watch)",
+    "reach into pocket",
+    "reading"
+  ],
+  "play with phone/tablet": [
+    "phone call",
+    "type on keyboard",
+    "take a selfie",
+    "check time (from watch)",
+    "reach into pocket"
+  ],
+  "type on keyboard": [
+    "writing",
+    "reading",
+    "play with phone/tablet",
+    "check time (from watch)",
+    "phone call"
+  ],
+  "point at something/directions": [
+    "point at someone",
+    "hand waving",
+    "salute",
+    "cheer (raise arms)",
+    "giving object"
+  ],
+  "take a selfie": [
+    "play with phone/tablet",
+    "phone call",
+    "check time (from watch)",
+    "reach into pocket",
+    "type on keyboard"
+  ],
+  "check time (from watch)": [
+    "phone call",
+    "play with phone/tablet",
+    "take a selfie",
+    "reach into pocket",
+    "type on keyboard"
+  ],
+  "rub two hands": [
+    "clapping",
+    "pray with hands together",
+    "cross hands in front",
+    "hand waving",
+    "cheer (raise arms)"
+  ],
+  "bow (bend forward)": [
+    "put on shoe",
+    "take off shoe",
+    "sit down",
+    "stand up",
+    "falling down"
+  ],
+  "shake head": [
+    "headache",
+    "neck pain",
+    "wipe face",
+    "sneezing/cough",
+    "take off hat/cap"
+  ],
+  "wipe face": [
+    "brush teeth",
+    "sneezing/cough",
+    "drink water",
+    "eat food",
+    "take off glasses"
+  ],
+  "salute": [
+    "hand waving",
+    "cheer (raise arms)",
+    "clapping",
+    "point at something/directions",
+    "point at someone"
+  ],
+  "pray with hands together": [
+    "rub two hands",
+    "cross hands in front",
+    "clapping",
+    "bow (bend forward)",
+    "salute"
+  ],
+  "cross hands in front": [
+    "pray with hands together",
+    "rub two hands",
+    "clapping",
+    "salute",
+    "hand waving"
+  ],
+  "sneezing/cough": [
+    "wipe face",
+    "drink water",
+    "eat food",
+    "brush teeth",
+    "nausea/vomiting"
+  ],
+  "staggering": [
+    "falling down",
+    "stand up",
+    "sit down",
+    "jump up",
+    "hopping"
+  ],
+  "falling down": [
+    "staggering",
+    "sit down",
+    "stand up",
+    "jump up",
+    "hopping"
+  ],
+  "headache": [
+    "neck pain",
+    "chest pain",
+    "back pain",
+    "nausea/vomiting",
+    "shake head"
+  ],
+  "chest pain": [
+    "back pain",
+    "neck pain",
+    "headache",
+    "nausea/vomiting",
+    "fan self"
+  ],
+  "back pain": [
+    "neck pain",
+    "chest pain",
+    "headache",
+    "nausea/vomiting",
+    "bow (bend forward)"
+  ],
+  "neck pain": [
+    "headache",
+    "chest pain",
+    "back pain",
+    "shake head",
+    "wipe face"
+  ],
+  "nausea/vomiting": [
+    "fan self",
+    "sneezing/cough",
+    "wipe face",
+    "headache",
+    "chest pain"
+  ],
+  "fan self": [
+    "nausea/vomiting",
+    "sneezing/cough",
+    "wipe face",
+    "headache",
+    "chest pain"
+  ],
+  "punch/slap someone": [
+    "pushing someone",
+    "kicking someone",
+    "pat someone on the back",
+    "hug each other",
+    "shaking hands"
+  ],
+  "kicking someone": [
+    "kicking the air/something",
+    "punch/slap someone",
+    "pushing someone",
+    "jump up",
+    "hopping"
+  ],
+  "pushing someone": [
+    "punch/slap someone",
+    "pat someone on the back",
+    "hug each other",
+    "shaking hands",
+    "giving object"
+  ],
+  "pat someone on the back": [
+    "hug each other",
+    "shaking hands",
+    "pushing someone",
+    "punch/slap someone",
+    "giving object"
+  ],
+  "point at someone": [
+    "point at something/directions",
+    "hand waving",
+    "salute",
+    "cheer (raise arms)",
+    "giving object"
+  ],
+  "hug each other": [
+    "shaking hands",
+    "pat someone on the back",
+    "pushing someone",
+    "punch/slap someone",
+    "walking towards each other"
+  ],
+  "giving object": [
+    "touch someone's pocket",
+    "reach into pocket",
+    "point at someone",
+    "point at something/directions",
+    "shaking hands"
+  ],
+  "touch someone's pocket": [
+    "reach into pocket",
+    "giving object",
+    "pick up",
+    "drop something",
+    "point at someone"
+  ],
+  "shaking hands": [
+    "hug each other",
+    "pat someone on the back",
+    "pushing someone",
+    "point at someone",
+    "hand waving"
+  ],
+  "walking towards each other": [
+    "walking apart from each other",
+    "hug each other",
+    "shaking hands",
+    "pushing someone",
+    "pat someone on the back"
+  ],
+  "walking apart from each other": [
+    "walking towards each other",
+    "hug each other",
+    "shaking hands",
+    "pushing someone",
+    "pat someone on the back"
+  ]
+}
