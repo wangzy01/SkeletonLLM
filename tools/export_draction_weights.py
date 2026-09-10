@@ -105,6 +105,7 @@ def infer_metadata(state: dict[str, torch.Tensor]) -> dict[str, Any]:
         "num_gaussians": int(features.shape[0]) if features is not None else None,
         "feature_dim": int(features.shape[1]) if features is not None else None,
         "enable_nfm": any(key.startswith("nfm.") for key in state),
+        "use_temporal_gru": any(key.startswith("temporal_gru.") for key in state),
     }
 
 
@@ -134,6 +135,7 @@ def main() -> None:
         "render_frames": str(args.render_frames),
         "render_size": str(args.render_size),
         "enable_nfm": str(inferred["enable_nfm"]).lower(),
+        "use_temporal_gru": str(inferred["use_temporal_gru"]).lower(),
     }
     save_file(state, str(args.output), metadata=tensor_metadata)
 

@@ -54,7 +54,8 @@ class Skeleton3DGSRendererModule(nn.Module):
     def __init__(self, H: int, W: int, num_line_samples: int = 10, target_num_frames: int = 16,
                  fovx_deg: float = 60.0, fovy_deg: float = 60.0, 
                  disable_autocast: bool = False,
-                 enable_nfm: bool = False):  # 🆕 Enable NFM network (default False for stability)
+                 enable_nfm: bool = False,
+                 use_temporal_gru: bool = False):
         super().__init__()
         self.H = int(H)
         self.W = int(W)
@@ -64,6 +65,7 @@ class Skeleton3DGSRendererModule(nn.Module):
         self.fovy_deg = float(fovy_deg)
         self.disable_autocast = bool(disable_autocast)
         self.enable_nfm = bool(enable_nfm)  # 🆕
+        self.use_temporal_gru = bool(use_temporal_gru)
         self._renderer: Optional[DifferentiableSkeletonRenderer] = None
         self._renderer_humanml3d: Optional[DifferentiableSkeletonRenderer] = None
         self._metadata_dim = 10
@@ -93,7 +95,7 @@ class Skeleton3DGSRendererModule(nn.Module):
                 W=self.W,
                 use_gsplat=True,
                 temporal_stride=4,
-                use_temporal_gru=False,  # Disabled for stability
+                use_temporal_gru=self.use_temporal_gru,
                 use_nn_modulation=True,
                 enable_nfm=self.enable_nfm,  # 🆕 Pass enable_nfm parameter
                 bone_pairs=pairs,
@@ -128,6 +130,8 @@ class Skeleton3DGSRendererModule(nn.Module):
             renderer.appearance_head.load_state_dict(src.appearance_head.state_dict())
             if renderer.nfm is not None and getattr(src, 'nfm', None) is not None:
                 renderer.nfm.load_state_dict(src.nfm.state_dict())
+            if renderer.temporal_gru is not None and src.temporal_gru is not None:
+                renderer.temporal_gru.load_state_dict(src.temporal_gru.state_dict())
             with torch.no_grad():
                 renderer.depth_mix_logit.copy_(src.depth_mix_logit.to(device))
                 sf = src.canonical_features.detach().to(device=device, dtype=torch.float32)
@@ -245,7 +249,7 @@ class Skeleton3DGSRendererModule(nn.Module):
                         num_gaussians=num_joints + n_lines, num_joints=num_joints,
                         feature_dim=self._feature_dim, metadata_dim=self._metadata_dim,
                         H=self.H, W=self.W, use_gsplat=True, temporal_stride=4,
-                        use_temporal_gru=False, use_nn_modulation=True,
+                        use_temporal_gru=self.use_temporal_gru, use_nn_modulation=True,
                         enable_nfm=self.enable_nfm, bone_pairs=pairs,
                     ).to(device=device, dtype=torch.float32)
                     renderer.requires_grad_(self._trainable)
@@ -470,6 +474,7 @@ class InternVLChatModel(PreTrainedModel):
                 fovx_deg=float(self.config.skeleton_fovx_deg),
                 fovy_deg=float(self.config.skeleton_fovy_deg),
                 enable_nfm=enable_nfm,  # 🆕 Pass enable_nfm parameter
+                use_temporal_gru=self.config.skeleton_use_temporal_gru,
             )
             # Keep renderer in float32; cast frames to vision dtype later
             self._skeleton_renderer_module = self._skeleton_renderer_module.to(device=self.device, dtype=torch.float32)
@@ -490,8 +495,11 @@ class InternVLChatModel(PreTrainedModel):
                     fovx_deg=float(self.config.skeleton_fovx_deg),
                     fovy_deg=float(self.config.skeleton_fovy_deg),
                     enable_nfm=enable_nfm,
+                    use_temporal_gru=self.config.skeleton_use_temporal_gru,
                 )
                 new_mod = new_mod.to(device=self.device, dtype=torch.float32)
+                # Register inner parameters before restoring them after a resize.
+                new_mod._ensure_renderer(self.device)
                 # Best-effort load to preserve compatible params
                 try:
                     new_mod.load_state_dict(old_state, strict=False)

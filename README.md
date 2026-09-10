@@ -91,11 +91,11 @@ python tools/build_crdistill_annotation.py \
 
 ## Training
 
-Four progressive stages address the renderer↔MLLM "chicken-and-egg" problem. **Stages 1 and 4 are required; Stages 2 and 3 are optional** enhancements. Default epochs are 1 / 1 / 1 / 3. The LLM and vision backbone are always frozen.
+Four progressive stages address the renderer↔MLLM "chicken-and-egg" problem. **Stages 1 and 4 are required; Stages 2 and 3 are optional** enhancements. Default epochs are 1 / 1 / 1 / 3. The base LLM and vision backbone are frozen; LLM LoRA adapters train in Stages 3 and 4.
 
 | Stage | Script | Trains | Task | Required |
 | --- | --- | --- | --- | --- |
-| 1 Render Warm-up | `shell/stage1_render_warmup.sh` | DrAction + projector | MQA | **yes** |
+| 1 Render Warm-up | `shell/stage1_render_warmup.sh` | DrAction only | MQA | **yes** |
 | 2 Disc-FT | `shell/stage2_disc_ft.sh` | DrAction + projector | binary YES/NO | optional |
 | 3 CR-Distill | `shell/stage3_cr_distill.sh` | DrAction + projector + LLM LoRA | teacher rationale | optional |
 | 4 Recognition Refine | `shell/stage4_recognition.sh` | projector + LLM LoRA (**DrAction frozen**) | MQA | **yes** |
@@ -103,7 +103,7 @@ Four progressive stages address the renderer↔MLLM "chicken-and-egg" problem. *
 **Minimal pipeline (Stages 1 → 4):**
 
 ```bash
-# Stage 1: warm up DrAction + projector (start from base InternVL3-8B)
+# Stage 1: warm up DrAction only (start from base InternVL3-8B)
 MODEL=/path/to/InternVL3-8B \
 DATA_ROOT=/path/to/ntu/raw \
 ANNOTATION_FILE=data/ann/ntu60_48_cs_mqa.jsonl \
@@ -140,6 +140,8 @@ python tools/merge_lora.py work_dirs/.../stage4 work_dirs/.../stage4_merged
 ```
 
 Renderer training is memory-heavy at 448×448 (the per-Gaussian rasterizer); gradient checkpointing is on by default and the reference runs used 2×H20 GPUs.
+
+The training launcher enables the NFM temporal GRU by default (`SKELETON_USE_TEMPORAL_GRU=True`). Set it to `False` consistently across stages for the no-temporal ablation. The setting is saved in `config.json`; legacy checkpoints and renderer-only visualization retain the architecture indicated by their config or weights.
 
 ## Evaluation
 

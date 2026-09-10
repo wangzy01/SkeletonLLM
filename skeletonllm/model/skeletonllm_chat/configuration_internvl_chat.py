@@ -35,7 +35,8 @@ class InternVLChatConfig(PretrainedConfig):
             skeleton_fovx_deg=60.0,
             skeleton_fovy_deg=60.0,
             skeleton_renderer_trainable=False,
-            skeleton_enable_nfm=True,  # 🆕 Enable NFM network (default False for stability)
+            skeleton_enable_nfm=True,
+            skeleton_use_temporal_gru=False,  # Legacy checkpoints omitted this field and had no GRU.
             **kwargs):
         super().__init__(**kwargs)
 
@@ -73,6 +74,7 @@ class InternVLChatConfig(PretrainedConfig):
         self.skeleton_fovy_deg = float(skeleton_fovy_deg)
         self.skeleton_renderer_trainable = bool(skeleton_renderer_trainable)
         self.skeleton_enable_nfm = bool(skeleton_enable_nfm)  # 🆕
+        self.skeleton_use_temporal_gru = bool(skeleton_use_temporal_gru)
         # By default, we use tie_word_embeddings=False for models of all sizes.
         self.tie_word_embeddings = self.llm_config.tie_word_embeddings
 
@@ -83,6 +85,7 @@ class InternVLChatConfig(PretrainedConfig):
         logger.info(f'use_skeleton: {self.use_skeleton}')
         logger.info(f'skeleton_renderer_trainable: {self.skeleton_renderer_trainable}')
         logger.info(f'skeleton_enable_nfm: {self.skeleton_enable_nfm}')  # 🆕
+        logger.info(f'skeleton_use_temporal_gru: {self.skeleton_use_temporal_gru}')
 
     def to_dict(self):
         """
@@ -113,5 +116,6 @@ class InternVLChatConfig(PretrainedConfig):
         output['skeleton_fovy_deg'] = self.skeleton_fovy_deg
         output['skeleton_renderer_trainable'] = self.skeleton_renderer_trainable
         output['skeleton_enable_nfm'] = self.skeleton_enable_nfm  # 🆕
+        output['skeleton_use_temporal_gru'] = self.skeleton_use_temporal_gru
 
         return output

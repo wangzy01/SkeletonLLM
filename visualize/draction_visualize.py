@@ -47,6 +47,12 @@ def weight_metadata(path: Path) -> dict[str, str]:
         return dict(handle.metadata() or {})
 
 
+def weight_has_temporal_gru(path: Path) -> bool:
+    """Infer the architecture from tensors, including legacy renderer-only weights."""
+    with safe_open(path, framework="pt", device="cpu") as handle:
+        return any(key.startswith("temporal_gru.") for key in handle.keys())
+
+
 def resize_canonical_features(
     source: torch.Tensor,
     source_joints: int,
@@ -336,7 +342,13 @@ def render_file(
     adaptive_base_samples: int = 24,
     sample_beta: float = 1.0,
     scale_gamma: float = 0.0,
+    use_temporal_gru: bool | None = None,
 ) -> tuple[torch.Tensor, list[int], dict[str, object]]:
+    has_gru = weight_has_temporal_gru(weight_path)
+    if use_temporal_gru is None:
+        use_temporal_gru = has_gru
+    if use_temporal_gru and not has_gru:
+        raise ValueError("These renderer weights contain no GRU tensors; enabling it would use untrained parameters.")
     poses, metas, orients, detected_type = parse_skeleton_file(str(input_path))
     if detected_type != skeleton_type:
         raise ValueError(
@@ -380,7 +392,7 @@ def render_file(
             W=render_size,
             use_gsplat=False,
             temporal_stride=4,
-            use_temporal_gru=False,
+            use_temporal_gru=use_temporal_gru,
             use_nn_modulation=True,
             enable_nfm=enable_nfm,
             bone_pairs=pairs,
@@ -553,6 +565,10 @@ def main() -> None:
     )
     parser.add_argument("--enable-nfm", action="store_true", default=None)
     parser.add_argument("--disable-nfm", action="store_false", dest="enable_nfm")
+    parser.add_argument("--enable-temporal-gru", action="store_true", default=None,
+                        help="Use trained GRU weights. By default, infer from checkpoint tensor names.")
+    parser.add_argument("--disable-temporal-gru", action="store_false", dest="enable_temporal_gru",
+                        help="Disable temporal GRU for an explicit ablation.")
     args = parser.parse_args()
 
     metadata = weight_metadata(args.weights)
@@ -584,6 +600,7 @@ def main() -> None:
             num_line_samples=num_line_samples,
             fov_degrees=args.fov,
             enable_nfm=enable_nfm,
+            use_temporal_gru=args.enable_temporal_gru,
             sample_seed=args.sample_seed,
             device=device,
             joint_scale=args.joint_scale,
@@ -605,6 +622,8 @@ def main() -> None:
             "render_size": args.render_size,
             "frame_indices": frame_indices,
             "enable_nfm": enable_nfm,
+            "use_temporal_gru": (weight_has_temporal_gru(args.weights)
+                                 if args.enable_temporal_gru is None else args.enable_temporal_gru),
             "load_report": load_report,
         }
         (sample_dir / "render.json").write_text(

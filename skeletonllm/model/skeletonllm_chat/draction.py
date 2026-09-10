@@ -117,7 +117,7 @@ class DifferentiableSkeletonRenderer(nn.Module):
     def __init__(self, num_gaussians: int, num_joints: int, feature_dim: int, metadata_dim: int, H: int, W: int,
                  use_gsplat: bool = True,
                  temporal_stride: int = 4,
-                 use_temporal_gru: bool = False,  # Default False for stability
+                 use_temporal_gru: bool = False,  # Set explicitly by the training/checkpoint config.
                  use_nn_modulation: bool = True,
                  enable_nfm: bool = False,
                  bone_pairs: Optional[List[Tuple[int, int]]] = None):
@@ -252,10 +252,23 @@ class DifferentiableSkeletonRenderer(nn.Module):
 
     def reset_temporal_state(self, batch_size: int, K_total: int, device: torch.device):
         if self.temporal_gru is not None:
-            # GRU expects hx shape (num_layers, batch, hidden_size). Our inputs use batch_first with batch=batch_size.
-            self._h_gru = torch.zeros(1, batch_size, self.temporal_gru.hidden_size, device=device)
+            # Each person and Gaussian has its own history across frames. The
+            # GRU batch axis indexes Gaussians; its sequence axis indexes time.
+            self._h_gru = [
+                torch.zeros(1, K_total, self.temporal_gru.hidden_size, device=device)
+                for _ in range(batch_size)
+            ]
         else:
             self._h_gru = None
+
+    def _apply_temporal_modulation(self, features: torch.Tensor, person_index: int) -> torch.Tensor:
+        """Advance one frame of (1, K, D) features without mixing people or Gaussians."""
+        if self.temporal_gru is None:
+            return features
+        sequence = features.transpose(0, 1)  # (K, 1 time step, D)
+        sequence, hidden = self.temporal_gru(sequence, self._h_gru[person_index])
+        self._h_gru[person_index] = hidden
+        return sequence.transpose(0, 1)
 
     # No FK helpers
 
@@ -658,7 +671,7 @@ class DifferentiableSkeletonRenderer(nn.Module):
             self._debug_logged_appearance = True
 
         frames_list: List[torch.Tensor] = []
-        self.reset_temporal_state(batch_size=1, K_total=K_total, device=device)
+        self.reset_temporal_state(batch_size=P, K_total=K_total, device=device)
         for t in range(T_len):
                 per_means = []
                 per_scales = []
@@ -699,12 +712,7 @@ class DifferentiableSkeletonRenderer(nn.Module):
                             mod_in_float32 = mod_in.float()
                             
                             # Optional temporal GRU
-                            if self.temporal_gru is not None:
-                                x_seq = mod_in_float32.reshape(1, -1, mod_in_float32.shape[-1])
-                                x_seq, self._h_gru = self.temporal_gru(x_seq, self._h_gru)
-                                mod_in_eff = x_seq.reshape(1, -1, mod_in_float32.shape[-1])
-                            else:
-                                mod_in_eff = mod_in_float32
+                            mod_in_eff = self._apply_temporal_modulation(mod_in_float32, p)
                             
                             # NFM forward
                             deltas = self.nfm(mod_in_eff).to(dtype=mod_in.dtype)

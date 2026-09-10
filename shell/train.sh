@@ -2,12 +2,12 @@
 # ---------------------------------------------------------------------------
 # Unified SkeletonLLM training launcher. Select the stage with STAGE=1..4.
 #
-#   STAGE 1  Render Warm-up          [REQUIRED]  train DrAction + projector
+#   STAGE 1  Render Warm-up          [REQUIRED]  train DrAction only
 #   STAGE 2  Discriminative FT       [optional]  train DrAction + projector
 #   STAGE 3  Causal Reasoning Distil [optional]  train DrAction + projector + LLM LoRA
 #   STAGE 4  Recognition Refinement  [REQUIRED]  freeze DrAction; train projector + LLM LoRA
 #
-# The LLM and vision backbone are always frozen; only the parts listed above are
+# The base LLM and vision backbone are frozen; only the parts listed above are
 # trained. Stages 1/2/3/4 run for 1/1/1/3 epochs by default (paper setting).
 #
 # Required environment variables:
@@ -37,7 +37,7 @@ MASTER_PORT=${MASTER_PORT:-32100}
 
 # Per-stage trainable components and default epoch count.
 case "${STAGE}" in
-  1) RENDERER_TRAINABLE=True;  FREEZE_MLP=False; USE_LLM_LORA=0;  DEFAULT_EPOCHS=1 ;;
+  1) RENDERER_TRAINABLE=True;  FREEZE_MLP=True;  USE_LLM_LORA=0;  DEFAULT_EPOCHS=1 ;;
   2) RENDERER_TRAINABLE=True;  FREEZE_MLP=False; USE_LLM_LORA=0;  DEFAULT_EPOCHS=1 ;;
   3) RENDERER_TRAINABLE=True;  FREEZE_MLP=False; USE_LLM_LORA=32; DEFAULT_EPOCHS=1 ;;
   4) RENDERER_TRAINABLE=False; FREEZE_MLP=False; USE_LLM_LORA=32; DEFAULT_EPOCHS=3 ;;
@@ -98,6 +98,7 @@ torchrun \
   --use_skeleton True \
   --skeleton_renderer_trainable "${RENDERER_TRAINABLE}" \
   --skeleton_enable_nfm True \
+  --skeleton_use_temporal_gru "${SKELETON_USE_TEMPORAL_GRU:-True}" \
   --skeleton_num_line_samples 10 \
   --skeleton_target_num_frames 12 \
   --skeleton_fovx_deg 60.0 \

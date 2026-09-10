@@ -273,7 +273,11 @@ class ModelArguments:
     )
     skeleton_enable_nfm: bool = field(
         default=True,
-        metadata={'help': 'Enable NFM (Neural Field Modulation) network for dynamic appearance. Default False for stability.'}
+        metadata={'help': 'Enable the Neural Feature Modulator for dynamic appearance.'}
+    )
+    skeleton_use_temporal_gru: bool = field(
+        default=True,
+        metadata={'help': 'Enable per-primitive temporal GRU in NFM (paper setting). Set False for the no-temporal ablation.'}
     )
 
 
@@ -1123,6 +1127,14 @@ def main():
     if model_args.model_name_or_path is not None:
         logger.info('Loading InternVLChatModel...')
         config = InternVLChatConfig.from_pretrained(model_args.model_name_or_path)
+        if (config.use_skeleton and
+                config.skeleton_use_temporal_gru != model_args.skeleton_use_temporal_gru):
+            raise ValueError(
+                'The starting skeleton checkpoint and --skeleton_use_temporal_gru disagree. '
+                'Use the saved setting when continuing training; start Stage 1 from the base '
+                'InternVL3-8B model to train a different temporal variant. Legacy checkpoints '
+                'without this config field use False.'
+            )
         # Warn if the starting checkpoint appears to hold UNMERGED LoRA adapters.
         # InternVLChatModel.__init__ does not re-wrap LoRA from config, so loading a
         # raw LoRA-stage output directly drops its LoRA weights (base is reloaded and
@@ -1147,6 +1159,7 @@ def main():
         config.skeleton_fovx_deg = float(model_args.skeleton_fovx_deg)
         config.skeleton_fovy_deg = float(model_args.skeleton_fovy_deg)
         config.skeleton_enable_nfm = bool(model_args.skeleton_enable_nfm)  # 🆕
+        config.skeleton_use_temporal_gru = bool(model_args.skeleton_use_temporal_gru)
         # 🔧 FIX: Update LoRA config from command line arguments
         config.use_backbone_lora = model_args.use_backbone_lora
         config.use_llm_lora = model_args.use_llm_lora
@@ -1199,6 +1212,7 @@ def main():
             skeleton_fovx_deg=float(model_args.skeleton_fovx_deg),
             skeleton_fovy_deg=float(model_args.skeleton_fovy_deg),
             skeleton_enable_nfm=bool(model_args.skeleton_enable_nfm),  # 🆕
+            skeleton_use_temporal_gru=bool(model_args.skeleton_use_temporal_gru),
             use_backbone_lora=model_args.use_backbone_lora,  # 🔧 FIX: Pass LoRA config
             use_llm_lora=model_args.use_llm_lora,  # 🔧 FIX: Pass LoRA config
         )
